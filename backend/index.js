@@ -10,21 +10,8 @@ require('./Models/db');
 const PORT = process.env.PORT || 8080;
 
 app.use(bodyParser.json());
-
-const allowedOrigins = [ 
-    'https://deploy-mern-app-ui-ruddy.vercel.app',
-    'https://deploy-mern-app-api-gilt.vercel.app/auth/login',
-    'https://deploy-mern-app-api-gilt.vercel.app/auth/signup' ,
-    'https://deploy-mern-app-api-gilt.vercel.app/products'
-]; 
     
-    app.use(cors({ 
-        origin: function (origin, callback) { 
-            if (!origin || allowedOrigins.indexOf(origin) !== -1)
-                 { callback(null, true); } 
-            else { callback(new Error('Not allowed by CORS')); }
-         } 
-        }));
+    app.use(cors());
 
 app.use('/auth',AuthRouter);
 app.use('/products',ProductsRouter);
