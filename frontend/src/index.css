@@ -72,3 +72,10 @@ button {
     cursor: pointer;
     margin: 10px 0;
 }
+
+@media screen and (width < 450px) {
+    .Container{
+        margin-inline: auto;
+        width: 85%;
+    }
+}
